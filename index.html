@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Scroll to See Content</h1>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+    <div class="box"><h2>Content</h2></div>
+ 
+
+    <script>
+        const btn = document.getElementById('btn');
+        const boxes = document.querySelectorAll('.box');
+
+        for(let index=0 ; index < 2 ; index++){
+            boxes[index].classList.add('show');
+        }
+
+        addEventListener('scroll',()=>{
+            const trigger = (window.innerHeight/5) * 4;
+            
+            boxes.forEach(element => {
+                let box = element.getBoundingClientRect().top
+                if(box<trigger){
+                    element.classList.add('show')
+                }
+                else{
+                    element.classList.remove('show')
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>
